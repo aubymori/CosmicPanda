@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <script id="js-3295728849" src="//s.ytimg.com/yts/jsbin/www-searchbox-vfl8SWkPb.js"></script>
+        <script>
+            var yt = yt || {};
+            yt.timing = yt.timing || {};
+            yt.timing.tick = function (label, opt_time) {
+                var timer = yt.timing['timer'] || {};
+                if (opt_time) {
+                    timer[label] = opt_time;
+                } else {
+                    timer[label] = new Date().getTime();
+                }
+                yt.timing['timer'] = timer;
+            };
+            yt.timing.info = function (label, value) {
+                var info_args = yt.timing['info_args'] || {};
+                info_args[label] = value;
+                yt.timing['info_args'] = info_args;
+            };
+            yt.timing.info('e', "917000,916604,911403,910019,916626,901446,922401,920704,912806,927201,925703,925706,928001,922403,913546,913556,920201,911116,901451");
+            if (document.webkitVisibilityState == 'prerender') {
+                document.addEventListener('webkitvisibilitychange', function () {
+                    yt.timing.tick('start');
+                }, false);
+            }
+            yt.timing.tick('start');
+            yt.timing.info('li', '0');
+            try {
+                yt.timing['srt'] = window.gtbExternal && window.gtbExternal.pageT() || window.external && window.external.pageT;
+            } catch (e) { }
+            if (window.chrome && window.chrome.csi) {
+                yt.timing['srt'] = Math.floor(window.chrome.csi().pageT);
+            }
+            if (window.msPerformance && window.msPerformance.timing) {
+                yt.timing['srt'] = window.msPerformance.timing.responseStart - window.msPerformance.timing.navigationStart;
+            }
+        </script>
+        <title>{% block title %}YouTube{% endblock %}</title>
+        <link rel="icon" href="https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico" type="image/x-icon">
+        <link rel="icon" href="//s.ytimg.com/yts/img/favicon_32-vflWoMFGx.png" sizes="32x32">
+        <link id="css-2981592957" rel="stylesheet" href="https://s.ytimg.com/yts/cssbin/www-core-vflspPKkA.css">
+        {% block headCss %}{% endblock %}
+        <script>
+            if (window.yt.timing) {
+                yt.timing.tick("ct");
+            }
+        </script>
+    </head>
+    <body class="date-{{ yt.pageBuildDate ?? "19700101" }} en_US ltr ytg-old-clearfix guide-feed-v2" dir="ltr">
+        <div id="page" class="{{ pageType }}">
+            <div id="masthead-container">
+                {% include "pageframe/masthead.twig" %}
+            </div>
+            <div id="content-container">
+                <div id="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div id="footer-container">
+                {% include "pageframe/footer.twig" %}
+            </div>
+        </div>
+    </body>
+    <script id="js-2212214682" src="//s.ytimg.com/yts/jsbin/www-core-vflAFY677.js"></script>
+    <script>
+        yt.setConfig({
+      'XSRF_TOKEN': 'DNKtF-59CjKlad7KzR2AGGC67SF8MTM1MTg2Njc1M0AxMzUxNzgwMzUz',
+      'XSRF_FIELD_NAME': 'session_token'
+    });
+
+    yt.setConfig('XSRF_REDIRECT_TOKEN', 'x_itppfD6gXlMgPM0Ep3cpoT2bR8MTM1MTg2Njc1M0AxMzUxNzgwMzUz');
+
+    yt.setConfig({
+      'EVENT_ID': "CM2Kqp7-rbMCFdS-IQodfgJbgQ==",
+      'CURRENT_URL': "http:\/\/www.youtube.com\/attribution?v=-Hd3IoH0knY",
+      'LOGGED_IN': false,
+      'SESSION_INDEX': null,
+
+      'WATCH_CONTEXT_CLIENTSIDE': false,
+
+      'FEEDBACK_LOCALE_LANGUAGE': "en",
+      'FEEDBACK_LOCALE_EXTRAS': {"logged_in": false, "experiments": "909524,910017,900222,922401,920704,912806,927201,925003,913546,913556,920201,900816,911112,901451", "guide_subs": "NA", "accept_language": null}    });
+  </script>
+  <script>yt.setConfig('THUMB_DELAY_LOAD_BUFFER', 0);</script>
+  <script>
+    
+
+
+    yt.setMsg({
+      'LIST_CLEARED': "List cleared",
+      'PLAYLIST_VIDEO_DELETED': "Video deleted.",
+      'ERROR_OCCURRED': "Sorry, an error occurred.",
+      'NEXT_VIDEO_TOOLTIP': "Next video:\u003cbr\u003e \u0026#8220;${next_video_title}\u0026#8221;",
+      'NEXT_VIDEO_NOTHUMB_TOOLTIP': "Next video",
+      'SHOW_PLAYLIST_TOOLTIP': "Show playlist",
+      'HIDE_PLAYLIST_TOOLTIP': "Hide playlist",
+      'AUTOPLAY_ON_TOOLTIP': "Turn autoplay off",
+      'AUTOPLAY_OFF_TOOLTIP': "Turn autoplay on",
+      'SHUFFLE_ON_TOOLTIP': "Turn shuffle off",
+      'SHUFFLE_OFF_TOOLTIP': "Turn shuffle on",
+      'PLAYLIST_BAR_PLAYLIST_SAVED': "Playlist saved!",
+      'PLAYLIST_BAR_ADDED_TO_FAVORITES': "Added to favorites",
+      'PLAYLIST_BAR_ADDED_TO_PLAYLIST': "Added to playlist",
+      'PLAYLIST_BAR_ADDED_TO_QUEUE': "Added to queue",
+      'AUTOPLAY_WARNING1': "Next video starts in 1 second...",
+      'AUTOPLAY_WARNING2': "Next video starts in 2 seconds...",
+      'AUTOPLAY_WARNING3': "Next video starts in 3 seconds...",
+      'AUTOPLAY_WARNING4': "Next video starts in 4 seconds...",
+      'AUTOPLAY_WARNING5': "Next video starts in 5 seconds...",
+      'UNDO_LINK': "Undo"  });
+  
+  
+    yt.setConfig({
+      'DRAGDROP_BINARY_URL': "\/\/s.ytimg.com\/yts\/jsbin\/www-dragdrop-vfllufND3.js",
+      'PLAYLIST_BAR_PLAYING_INDEX': -1  });
+  
+      yt.setAjaxToken('addto_ajax_logged_out', "br3GhM0MLtAPU4Gkhrq1UKvceWt8MTM1MTg2Njc1M0AxMzUxNzgwMzUz");
+  
+      yt.pubsub.subscribe('init', yt.www.lists.init);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      yt.setConfig({'SBOX_JS_URL': "\/\/s.ytimg.com\/yts\/jsbin\/www-searchbox-vflOEotgN.js",'SBOX_SETTINGS': {"CLOSE_ICON_URL": "\/\/s.ytimg.com\/yts\/img\/icons\/close-vflrEJzIW.png", "SHOW_CHIP": false, "PSUGGEST_TOKEN": null, "REQUEST_DOMAIN": "us", "EXPERIMENT_ID": -1, "SESSION_INDEX": null, "HAS_ON_SCREEN_KEYBOARD": false, "CHIP_PARAMETERS": {}, "REQUEST_LANGUAGE": "en"},'SBOX_LABELS': {"SUGGESTION_DISMISS_LABEL": "Dismiss", "SUGGESTION_DISMISSED_LABEL": "Suggestion dismissed"}});
+  
+  
+  
+  
+  
+    </script>
+    <script>
+        yt.setMsg({
+          'ADDTO_WATCH_LATER_ADDED': "Added",
+          'ADDTO_WATCH_LATER_ERROR': "Error"
+        });
+      </script>
+    {% block footJs %}{% endblock %}
+</html>

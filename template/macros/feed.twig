@@ -1,0 +1,107 @@
+{% macro video(video) %}
+    {% if video.richItemRenderer.content.videoRenderer %}
+        {% set this = video.richItemRenderer.content.videoRenderer %}
+    {% endif %}
+    {% if this %}
+    <li>
+        <div class="feed-item-container first" data-channel-key="{{ this.longBylineText.runs[0].navigationEndpoint.browseEndpoint.browseId }}">
+            <div class="feed-author-bubble-container">
+                <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="feed-author-bubble">
+                    <span class="feed-item-author">
+                        <span class="video-thumb ux-thumb yt-thumb-square-28">
+                            <span class="yt-thumb-clip">
+                                <span class="yt-thumb-clip-inner">
+                                    {% apply spaceless %}
+                                    <img src="{{ getThumb(this.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer, 28) }}" alt="" width="28">
+                                    <span class="vertical-align"></span>
+                                    {% endapply %}
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="feed-item-main">
+                <div class="feed-item-header">
+                    <div class="feed-item-actions-line">
+                        <span class="feed-item-owner">
+                            <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-name">{{ getText(this.longBylineText) }}</a>
+                        </span>
+                        uploaded a video
+                        <span class="feed-item-time">{{ getText(this.publishedTimeText) }}</span>
+                    </div>
+                </div>
+                <div class="feed-item-content-wrapper clearfix context-data-item">
+                    <div class="feed-item-thumb">
+                        <a href="{{ getUrl(this) }}" class="ux-thumb-wrap contains-addto yt-uix-contentlink">
+                            <span class="video-thumb ux-thumb yt-thumb-default-185">
+                                <span class="yt-thumb-clip">
+                                    <span class="yt-thumb-clip-inner">
+                                        {% apply spaceless %}
+                                        <img src="//i3.ytimg.com/vi/{{ this.videoId }}/mqdefault.jpg" width="185">
+                                        <span class="vertical-align"></span>
+                                        {% endapply %}
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="video-time">{{ getText(this.lengthText) }}</span>
+                            <button class="addto-button video-actions addto-watch-later-button-sign-in yt-uix-button yt-uix-button-default yt-uix-button-short yt-uix-tooltip" data-tooltip-text="Watch Later">
+                                <span class="yt-uix-button-content">
+                                    <img src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="Watch Later">
+                                </span>
+                                <img class="yt-uix-button-arrow" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </button>
+                        </a>
+                    </div>
+                    <div class="feed-item-content">
+                        <h4>
+                            <a href="{{ getUrl(this) }}" class="feed-video-title title yt-uix-contentlink" title="{{ getText(this.title) }}">{{ getText(this.title) }}</a>
+                        </h4>
+                        <div class="metadata">
+                            <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-photo">
+                                <span class="video-thumb ux-thumb yt-thumb-square-18">
+                                    <span class="yt-thumb-clip">
+                                        <span class="yt-thumb-clip-inner">
+                                            {% apply spaceless %}
+                                            <img src="{{ getThumb(this.channelThumbnailSupportedRenderers.channelThumbnailWithLinkRenderer, 18) }}" alt="{{ getText(this.longBylineText) }}" width="18" data-group-key="thumb-group-0">
+                                            <span class="vertical-align"></span>
+                                            {% endapply %}
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                            <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-name">{{ getText(this.longBylineText) }}</a>
+                            <span class="bull">•</span>
+                            <span class="view-count">{{ getText(this.viewCountText) }}</span>
+                            <div class="description">
+                                <p>{{ getText(this.descriptionSnippet) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="feed-item-dismissable-notices">
+            <div class="feed-item-dismissal feed-item-dismissal-hide hid">This item has been hidden.</div>
+            <div class="feed-item-dismissal feed-item-dismissal-uploads hid">
+                In the future you will only see uploads from
+                <span class="feed-item-owner">
+                    <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-name">{{ getText(this.longBylineText) }}</a>
+                </span>
+            </div>
+            <div class="feed-item-dismissal feed-item-dismissal-all-activity hid">
+                In the future you will see all activity from
+                <span class="feed-item-owner">
+                    <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-name">{{ getText(this.longBylineText) }}</a>
+                </span>
+            </div>
+            <div class="feed-item-dismissal feed-item-dismissal-unsubscribe hid">
+                You have unsubscribed from
+                <span class="feed-item-owner">
+                    <a href="{{ getUrl(this.longBylineText.runs[0]) }}" class="yt-user-name">{{ getText(this.longBylineText) }}</a>
+                </span>
+            </div>
+        </div>
+    </li>
+    {% endif %}
+{% endmacro %}

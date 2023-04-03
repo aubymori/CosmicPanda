@@ -1,0 +1,22 @@
+{% macro error(content, small = false) %}
+{{ _self.main("error", content, small) }}
+{% endmacro %}
+
+{% macro info(content, small = false) %}
+{{ _self.main("info", content, small) }}
+{% endmacro %}
+
+{% macro render(data) %}
+<div class="yt-alert yt-alert-default yt-alert-{{ data.type }} {{ data.small ? "yt-alert-small" }}">
+    <div class="yt-alert-icon">
+        <img src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="icon master-sprite" alt="Alert icon">
+    </div>
+    <div class="yt-alert-buttons"></div>
+    <div class="yt-alert-content" role="alert">
+        <span class="yt-alert-vertical-trick"></span>
+        <div class="yt-alert-message">
+            {{ data.content|raw }}
+        </div>
+    </div>
+</div>
+{% endmacro %}

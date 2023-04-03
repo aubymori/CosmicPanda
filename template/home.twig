@@ -1,0 +1,139 @@
+{% extends "core.twig" %}
+
+{% set pageType = "home" %}
+
+{%- block headCss -%}
+<link id="css-3905558685" rel="stylesheet" href="https://s.ytimg.com/yts/cssbin/www-guide-vfl9JSkNN.css">
+{% endblock %}
+
+{%- block footJs -%}
+<script id="js-622731694" src="//s.ytimg.com/yts/jsbin/www-guide-vflWIdVpw.js"></script>
+{% endblock %}
+
+{%- block content -%}
+{% import "macros/feed.twig" as feed %}
+<div id="debug" class="hid">
+    {{ yt.page.videoList|json_encode }}
+</div>
+<div class="guide-layout-container enable-fancy-subscribe-button">
+    <div class="guide-container">
+        <div id="guide-builder-promo">
+            <h2>Sign in to add channels to your homepage</h2>
+            <div id="guide-builder-promo-buttons" class="signed-out">
+                <button href="//accounts.google.com/ServiceLogin?continue=https://www.youtube.com/signin" class="yt-uix-button yt-uix-button-dark" onclick=";window.location.href=this.getAttribute('href');return false;">
+                    <span class="yt-uix-button-content">Sign In</span>
+                </button>
+            </div>
+        </div>
+        <div class="guide">
+            <div class="guide-section yt-uix-expander first">
+                <h3 class="guide-item-container selected-child">
+                    <a class="guide-item selected" data-feed-name="youtube" data-feed-type="system">
+                        <span class="thumb">
+                            <img src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="" class="system-icon category">
+                        </span>
+                        <span class="display-name">From YouTube</span>
+                    </a>
+                </h3>
+                <ul>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="trending" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system trending" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Trending</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="music" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system music" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Music</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="entertainment" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system entertainment" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Entertainment</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="sports" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system sports" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Sports</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="comedy" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system comedy" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Comedy</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="film" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system film" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Film &amp; Animation</span>
+                        </a>
+                    </li>
+                    <li class="guide-item-container">
+                        <a class="guide-item" data-feed-name="gaming" data-feed-type="system">
+                            <span class="thumb">
+                                <img class="system-icon system gaming" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                            </span>
+                            <span class="display-name">Gaming</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="guide-item-container">
+                    <span class="guide-item guide-item-action guide-item-fake">
+                        <a href="/videos">
+                            see all <img src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" class="see-more-arrow" alt="">
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="guide-background"></div>
+    <div id="video-sidebar">
+        <h3 class="sidebar-module-header">Spotlight</h3>
+        <h2>This version of YouTube is going away soon.</h2>
+        <p class="sidebar-module-description">This version of YouTube is going away soon. <a href="/">Switch to the new YouTube</a></p>
+        <p class="sidebar-module-description">Presented by: <a href="/user/YouTube">YouTube</a></p>
+        <ul></ul>
+        <h3>Featured</h3>
+        <ul></ul>
+    </div>
+    <div id="feed">
+        <div id="feed-system-youtube" class="individual-feed">
+            <div class="feed-header no-metadata">
+                <div class="feed-header-thumb">
+                    <img class="feed-header-icon youtube" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                </div>
+                <div class="feed-header-details context-source-container">
+                    <h2>From YouTube</h2>
+                </div>
+            </div>
+            <div class="feed-container">
+                <div class="feed-page">
+                    <ul class="context-data-container">
+                        {%- for video in yt.page.videoList -%}
+                            {{ feed.video(video) }}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feed-background"></div>
+</div>
+{% endblock %}

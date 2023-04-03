@@ -1,0 +1,59 @@
+{% extends "core.twig" %}
+
+{% set pageType = "watch" %}
+
+{%- block title -%}
+{% if yt.page.primaryInfo.title %}
+{{ yt.page.primaryInfo.title }} - {{ parent() }}
+{% else %}
+{{ parent() }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="debug" class="hid">
+    {{ yt.response }}
+</div>
+<div id="watch-container">
+    <div id="watch-headline-container">
+        <div id="watch-headline" class="watch-headline">
+            <h1 id="watch-headline-title">
+                <span id="eow-title" title="{{ yt.page.primaryInfo.title }}">{{ yt.page.primaryInfo.title }}</span>
+            </h1>
+            <div id="watch-headline-user-info">
+                <span class="yt-uix-button-group">
+                    {% apply spaceless %}
+                    <button class="start yt-uix-button yt-uix-button-default" href="{{ yt.page.secondaryInfo.author.url }}" onclick=";window.location.href=this.getAttribute('href');return false;">
+                        <span class="yt-uix-button-content">{{ yt.page.secondaryInfo.author.text }}</span>
+                    </button>
+                    <div class="yt-subscription-button-hovercard yt-uix-hovercard">
+                        <span class="yt-uix-button-context-light yt-uix-button-subscription-container">
+                            <button href="//accounts.google.com/ServiceLogin?continue=https://www.youtube.com/signin" class="yt-subscription-button yt-subscription-button-js-default end yt-uix-button yt-uix-button-subscription" onclick=";window.location.href=this.getAttribute('href');return false;">
+                                <span class="yt-uix-button-icon-wrapper">
+                                    <img class="yt-uix-button-icon yt-uix-button-icon-subscribe" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                                    <span class="yt-uix-button-valign"></span>
+                                </span>
+                                <span class="yt-uix-button-content">
+                                    <span class="subscribe-label">Subscribe</span>
+                                    <span class="subscribed-label">Subscribed</span>
+                                    <span class="unsubscribe-label">Unsubscribe</span>
+                                </span>
+                            </button>
+                        </span>
+                    </div>
+                    {% endapply %}
+                </span>
+                <button id="watch-mfu-button" class="yt-uix-expander-collapsed yt-uix-button yt-uix-button-default" onclick="_toggleclass(this,'yt-uix-expander-collapsed');return false;" data-button-action="yt.www.watch.watch5.handleToggleMoreFromUser">
+                    <span class="yt-uix-button-content">{{ yt.page.secondaryInfo.author.videos }} videos</span>
+                    <img class="yt-uix-button-arrow" src="//s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif" alt="">
+                </button>
+            </div>
+            <div id="watch-more-from-user" class="collapsed">
+                <div id="watch-channel-discoverbox" class="yt-rounded">
+                    <span id="watch-channel-loading">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
